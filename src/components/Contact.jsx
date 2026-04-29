@@ -1,6 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { PortfolioContext } from '../context/PortfolioContext';
-//import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
+
+// ─── EmailJS Configuration ────────────────────────────────────────────────────
+// Replace these with your values from https://dashboard.emailjs.com
+const EMAILJS_PUBLIC_KEY  = 'ZQBS9KafUgizkphcG';   // Admin → Account → Public Key
+const EMAILJS_SERVICE_ID  = 'service_5tmy4a8';   // Email Services → Service ID
+const EMAILJS_TEMPLATE_ID = 'template_b88orlg';  // Email Templates → Template ID
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function Contact() {
   const { portfolioData } = useContext(PortfolioContext);
@@ -13,11 +20,10 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  // Initialize EmailJS (you need to replace this with your Email public key)
-  // Get it from: https://dashboard.emailjs.com/admin/account
-  // React.useEffect(() => {
-  //   emailjs.init('YOUR_PUBLIC_KEY_HERE');
-  // }, []);
+  // Initialize EmailJS with your public key
+  React.useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,22 +39,20 @@ export default function Contact() {
     setError('');
 
     try {
-      // Send email using EmailJS
-      // You need to set up a service and template on emailjs.com
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID_HERE', // Replace with your service ID
-      //   'YOUR_TEMPLATE_ID_HERE', // Replace with your template ID
-      //   {
-      //     to_email: portfolioData.email, // Your email address
-      //     from_email: formData.email,
-      //     from_name: formData.name,
-      //     message: formData.message,
-      //   }
-      // );
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          to_email: portfolioData?.email,
+          from_email: formData.email,
+          from_name: formData.name,
+          message: formData.message,
+        }
+      );
 
-      // setSubmitted(true);
-      // setFormData({ name: '', email: '', message: '' });
-      // setTimeout(() => setSubmitted(false), 5000);
+      setSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       setError('Failed to send message. Please try again.');
       console.error('Email error:', err);
