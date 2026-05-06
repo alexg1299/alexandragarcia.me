@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect, useRef, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Code, Github, ExternalLink, ChevronLeft, ChevronRight, Play, X, Expand } from 'lucide-react';
+import { useParams } from 'react-router-dom';
+import { Code, Github, ExternalLink, ChevronLeft, ChevronRight, Play, X, Expand } from 'lucide-react';
 import { PortfolioContext } from '../context/PortfolioContext';
+import BackButton from '../components/ui/BackButton';
+import TechBadge from '../components/ui/TechBadge';
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const { projectsData } = useContext(PortfolioContext);
-  const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -19,12 +20,7 @@ export default function ProjectDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Project not found</h1>
-          <button
-            onClick={() => navigate('/')}
-            className="text-purple-600 dark:text-purple-400 hover:underline"
-          >
-            Back to Portfolio
-          </button>
+          <BackButton />
         </div>
       </div>
     );
@@ -54,14 +50,9 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Navigation */}
+      {/* Back navigation */}
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-4">
-        <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline mb-8"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Back to Portfolio
-        </button>
+        <BackButton />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 pb-24">
@@ -190,11 +181,10 @@ export default function ProjectDetail() {
           {project.title}
         </h1>
 
+        {/* Tech stack pills — gradient variant */}
         <div className="flex flex-wrap gap-2 mb-8">
           {project.tech.map((tech, i) => (
-            <span key={i} className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg text-sm font-semibold">
-              {tech}
-            </span>
+            <TechBadge key={i} label={tech} variant="gradient" />
           ))}
         </div>
 

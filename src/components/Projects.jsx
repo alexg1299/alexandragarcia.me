@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Code } from 'lucide-react';
 import { PortfolioContext } from '../context/PortfolioContext';
+import TechBadge from './ui/TechBadge';
+import SectionHeading from './ui/SectionHeading';
 
 export default function Projects() {
   const { projectsData } = useContext(PortfolioContext);
@@ -10,9 +12,8 @@ export default function Projects() {
   return (
     <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-          Featured Projects
-        </h2>
+        {/* Section title — uses shared SectionHeading component */}
+        <SectionHeading>Featured Projects</SectionHeading>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.length === 0 ? (
             <div className="col-span-full flex flex-col items-center justify-center py-24 text-center">
@@ -41,11 +42,10 @@ export default function Projects() {
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+                {/* Tech stack pills */}
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm">
-                      {tech}
-                    </span>
+                    <TechBadge key={i} label={tech} />
                   ))}
                 </div>
                 <p className="text-purple-600 dark:text-purple-400 font-semibold group-hover:underline">

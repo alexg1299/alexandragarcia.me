@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar } from 'lucide-react';
 import { PortfolioContext } from '../context/PortfolioContext';
+import TechBadge from './ui/TechBadge';
+import SectionHeading from './ui/SectionHeading';
 
 export default function About() {
   const { portfolioData, experienceData } = useContext(PortfolioContext);
@@ -10,9 +11,8 @@ export default function About() {
   return (
     <section id="about" className="min-h-screen flex items-center justify-center px-6 py-20 bg-gray-50 dark:bg-gray-800/50">
       <div className="max-w-6xl w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-          About Me
-        </h2>
+        {/* Section title — uses shared SectionHeading component */}
+        <SectionHeading>About Me</SectionHeading>
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div className="space-y-6">
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -24,9 +24,13 @@ export default function About() {
 
             <div className="pt-4">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Core Skills</h3>
+              {/* Core skill pills */}
               <div className="flex flex-wrap gap-2">
                 {portfolioData.coreSkills.map((skill, i) => (
-                  <span key={i} className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
+                  <span
+                    key={i}
+                    className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium"
+                  >
                     {skill}
                   </span>
                 ))}
@@ -56,9 +60,8 @@ export default function About() {
 
         {/* Experience Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-            Current Experience
-          </h2>
+          {/* Experience preview heading */}
+          <SectionHeading className="text-3xl! md:text-4xl! mb-8!">Current Experience</SectionHeading>
           <div
             onClick={() => navigate('/experience')}
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 border-l-4 border-purple-600 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all"

@@ -2,20 +2,64 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const PortfolioContext = createContext();
 
-export const PortfolioProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    const initialValue = saved ? JSON.parse(saved) : false;
-    console.log('Initializing darkMode from localStorage:', { saved, initialValue });
-    return initialValue;
-  });
+// ─────────────────────────────────────────────────────────────────────────────
+// OWNER INFO
+// Update this object to change name, bio, contact links, and core skills shown
+// in the Hero and About sections.
+// ─────────────────────────────────────────────────────────────────────────────
+const PORTFOLIO_INFO = {
+  name: "Alexandra Garcia",
+  title: "Full Stack Developer",
+  bio: "Building end-to-end web solutions with React, Node.js, and modern cloud technologies",
+  shortBio:
+    "I'm a passionate full-stack developer with a keen eye for design and a love for creating seamless user experiences. With expertise in React, Node.js, and modern web technologies, I transform ideas into elegant, high-performance applications.",
+  additionalBio:
+    "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.",
+  coreSkills: [
+    "React",
+    "Node.js",
+    "TypeScript",
+    "C#",
+    "MSSQL",
+    "AWS",
+    "REST APIs",
+    "Tailwind CSS",
+  ],
+  // email is the single source of truth for contact info.
+  // Components that need a mailto: link should build it as `"mailto:" + portfolioData.email`.
+  email: "alexgarcia1299@yahoo.com",
+  socials: {
+    github: "https://github.com/alexg1299/alexandragarcia.me",
+    linkedin: "https://www.linkedin.com/in/alexandra-g1299/",
+    // email intentionally omitted — use portfolioData.email directly and
+    // prefix with "mailto:" where a link href is needed.
+  },
+};
 
-  useEffect(() => {
-    console.log('Saving darkMode to localStorage:', darkMode);
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-  }, [darkMode]);
-
-  const projectsData = [
+// ─────────────────────────────────────────────────────────────────────────────
+// PROJECTS
+// Add a new object to this array to add a project card + detail page.
+//
+// Required fields:
+//   id          — unique slug used in the URL  (/project/:id)
+//   title       — display name of the project
+//   description — short summary shown on the card
+//   tech        — array of technology strings
+//   gradient    — Tailwind gradient classes used when no cardImage is provided
+//
+// Optional fields:
+//   fullDescription  — longer text shown at the top of the detail page
+//   challenges       — paragraph describing technical challenges
+//   results          — paragraph describing outcomes
+//   cardImage        — path to an image shown on the project card
+//   images           — array of { src, caption } shown in the detail carousel
+//   videoTitle       — heading label for the videos section
+//   videoDescription — text shown above the video list
+//   videos           — array of { src, title } for embedded videos
+//   github           — GitHub repo URL (null to hide)
+//   live             — live site URL (null to hide)
+// ─────────────────────────────────────────────────────────────────────────────
+const PROJECTS = [
     {
       id: 'new-england-compass',
       title: 'New England Compass (Southwest Research Institute)',
@@ -52,10 +96,30 @@ export const PortfolioProvider = ({ children }) => {
       ],
       github: null,
       live: null,
-    }
-  ];
+    },
+];
 
-  const experienceData = [
+// ─────────────────────────────────────────────────────────────────────────────
+// EXPERIENCE
+// Add a new object to this array to add a role to the experience page.
+// Roles are displayed in order — most recent first.
+//
+// Required fields:
+//   id          — unique identifier
+//   title       — job title
+//   company     — company name
+//   date        — display date range  (e.g. "Oct 2023 - Present")
+//   description — short summary shown on the About preview card
+//   tech        — array of technology strings
+//
+// Optional fields:
+//   previousTitle    — title of an earlier role at the same company
+//   previousDate     — date range for the previous role
+//   fullDescription  — longer text shown on the Experience detail page
+//   responsibilities — array of bullet strings
+//   achievements     — array of bullet strings
+// ─────────────────────────────────────────────────────────────────────────────
+const EXPERIENCE = [
     {
       id: 'senior-swe',
       title: "Senior Software Engineer",
@@ -101,36 +165,42 @@ export const PortfolioProvider = ({ children }) => {
         "Supported agile adoption through active participation in iterative delivery cycles",
         "Converted internship into a full-time Software Engineer role"
       ],
-      tech: ["React", "TypeScript", "C#", "REST APIs", "Git", "Agile"]
-    }
-  ];
+      tech: ["React", "TypeScript", "C#", "REST APIs", "Git", "Agile"],
+    },
+];
 
-  const blogPosts = [];
+// ─────────────────────────────────────────────────────────────────────────────
+// BLOG POSTS
+// Add objects here when blog posts are ready. Each post will appear on the
+// Blog listing page and have its own detail route (/blog/:id).
+//
+// Suggested fields: id, title, date, summary, content (markdown string)
+// ─────────────────────────────────────────────────────────────────────────────
+const BLOG_POSTS = [];
 
-  const portfolioData = {
-    name: "Alexandra Garcia",
-    title: "Full Stack Developer",
-    bio: "Building end-to-end web solutions with React, Node.js, and modern cloud technologies",
-    shortBio: "I'm a passionate full-stack developer with a keen eye for design and a love for creating seamless user experiences. With expertise in React, Node.js, and modern web technologies, I transform ideas into elegant, high-performance applications.",
-    additionalBio: "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.",
-    coreSkills: ["React", "Node.js", "TypeScript", "C#", "MSSQL", "AWS", "REST APIs", "Tailwind CSS"],
-    email: "alexgarcia1299@yahoo.com",
-    github: "https://github.com/alexg1299/alexandragarcia.me",
-    linkedin: "https://www.linkedin.com/in/alexandra-g1299/",
-    socials: {
-      github: "https://github.com/alexg1299/alexandragarcia.me",
-      linkedin: "https://www.linkedin.com/in/alexandra-g1299/",
-      email: "mailto:alexgarcia1299@yahoo.com"
-    }
-  };
+// ─────────────────────────────────────────────────────────────────────────────
+// PROVIDER
+// Wraps the app and exposes all portfolio data + the dark-mode toggle via
+// React context. Consumers import `PortfolioContext` and call `useContext`.
+// ─────────────────────────────────────────────────────────────────────────────
+export const PortfolioProvider = ({ children }) => {
+  // Persist dark-mode preference across sessions
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const value = {
-    portfolioData,
-    projectsData,
-    experienceData,
-    blogPosts,
+    portfolioData: PORTFOLIO_INFO,
+    projectsData: PROJECTS,
+    experienceData: EXPERIENCE,
+    blogPosts: BLOG_POSTS,
     darkMode,
-    setDarkMode
+    setDarkMode,
   };
 
   return (

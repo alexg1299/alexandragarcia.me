@@ -50,7 +50,7 @@ export default function Hero() {
             <a href={portfolioData.socials.linkedin} className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href={portfolioData.socials.email} className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+            <a href={`mailto:${portfolioData.email}`} className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
               <Mail className="w-6 h-6" />
             </a>
           </div>

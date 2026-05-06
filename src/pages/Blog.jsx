@@ -1,23 +1,15 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import { PortfolioContext } from '../context/PortfolioContext';
+import BackButton from '../components/ui/BackButton';
 
 export default function Blog() {
   const { blogPosts } = useContext(PortfolioContext);
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Navigation */}
+      {/* Back navigation */}
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-4">
-        <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline mb-8"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Back to Portfolio
-        </button>
+        <BackButton />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-24">
