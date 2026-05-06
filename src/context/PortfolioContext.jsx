@@ -15,7 +15,45 @@ export const PortfolioProvider = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  const projectsData = [];
+  const projectsData = [
+    {
+      id: 'new-england-compass',
+      title: 'New England Compass (Southwest Research Institute)',
+      description: 'A production traffic management platform serving state transportation operators across Vermont, New Hampshire, and Maine with real-time monitoring and device control.',
+      fullDescription: 'New England Compass is a full-stack Advanced Traffic Management System (ATMS) built for the transportation agencies of Vermont, New Hampshire, and Maine. The platform provides real-time monitoring of roadway devices, incident management, live map views, and operator tooling. I contributed to both the frontend React/TypeScript application and the C# backend services, and also recorded voiceover tutorials to help onboard operators and agency staff.',
+      challenges: 'The system handles real-time data streams from hundreds of field devices across three states and must remain available 24/7. Key challenges included migrating a legacy monolithic Windows application to a dockerized microservices architecture while keeping production systems live, and ensuring the UI remained intuitive for non-technical traffic operators.',
+      results: 'Successfully deployed across three state DOTs, the platform is actively used by traffic operations centers to monitor and respond to incidents in real time. The modernization effort reduced deployment complexity, improved system reliability, and the operator training videos reduced onboarding time significantly.',
+      gradient: 'from-blue-600 to-indigo-700',
+      cardImage: '/projects/new-england-compass/Map LogIn.png',
+      tech: ['React', 'TypeScript', 'C#', 'Docker', 'REST APIs', 'OpenAPI3', 'NUnit', 'Microservices'],
+      images: [
+        { src: '/projects/new-england-compass/Map LogIn.png', caption: 'New England Compass Login' },
+        { src: '/projects/new-england-compass/Map Layers Popup.png', caption: 'Map Layers, icons, and popup to view device details' },
+        { src: '/projects/new-england-compass/Map Event Creation.png', caption: 'Create EM Events directly from the map with drawing widget' },
+        { src: '/projects/new-england-compass/Connected Subsystems.png', caption: 'View the connection status for each subsystem' },
+        { src: '/projects/new-england-compass/SAA Edit User.png', caption: 'Edit user details in the SAA Mange Users page; Assign exclusive group/subsytem permissions' },
+        { src: '/projects/new-england-compass/CCTV Camera Wall.png', caption: 'CCTV Camera Wall view for monitoring multiple camera feeds' },
+        { src: '/projects/new-england-compass/CCTV Status.png', caption: 'CCTV Camera Status view for monitoring individual camera feeds and control device operations' },
+        { src: '/projects/new-england-compass/DMS device configuration.png', caption: 'DMS Device Configuration view for managing dynamic message signs' },
+        { src: '/projects/new-england-compass/DMS Status.png', caption: 'DMS Status view for monitoring dynamic message signs and their statuses' },
+        { src: '/projects/new-england-compass/DMS Edit message.png', caption: 'Edit messages on dynamic message signs' },
+        { src: '/projects/new-england-compass/DMS Groups.png', caption: 'View DMS Groups, update device statuses or messages displayed' },
+        { src: '/projects/new-england-compass/DSS Rule Manager.png', caption: 'Configure rules to automatically trigger device actions based on real-time data conditions' },
+        { src: '/projects/new-england-compass/DSS Edit Rule Nodes.png', caption: 'Edit rules in the DSS Rule Manager' },
+        { src: '/projects/new-england-compass/DSS Schedule rule.png', caption: 'Set up rules to activate during scheduled timeframe' },
+        { src: '/projects/new-england-compass/EM Event Summary.png', caption: 'Overview of EM Events within the system' },
+        { src: '/projects/new-england-compass/Em Event Creation.png', caption: 'Configure EM Events details, location information, associated cameras, users to notify, and more' },
+      ],
+      videoTitle: 'Training Videos (voiceover by me)',
+      videoDescription: 'These are used to train operators and agency staff on how to use the New England Compass platform. Each walkthrough covers a different subsystem, demonstrating key features and workflows. These are 2 of the 27 videos created for the project; I created the script detailing each page and its functionality, recorded the voiceover, and edited these videos.',
+      videos: [
+        { src: '/projects/new-england-compass/RS-Overview.mp4', title: 'Reporting Subsystem Overview Pages' },
+        { src: '/projects/new-england-compass/TTA-Overview.mp4', title: 'Travel Time Subsystem Overview Pages' },
+      ],
+      github: null,
+      live: null,
+    }
+  ];
 
   const experienceData = [
     {

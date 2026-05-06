@@ -72,9 +72,10 @@ export default function Navigation() {
             )}
           </div>
 
+          {/*
           <Link to="/blog" className={`transition-colors flex items-center gap-1 ${isActive('/blog') ? 'text-purple-600 dark:text-purple-400 font-bold' : 'text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400'}`}>
             Blog <ExternalLink className="w-3 h-3" />
-          </Link>
+          </Link> */}
 
           <button onClick={() => {
             console.log('Dark mode button clicked');

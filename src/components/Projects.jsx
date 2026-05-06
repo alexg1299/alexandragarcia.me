@@ -25,9 +25,19 @@ export default function Projects() {
               onClick={() => navigate(`/project/${project.id}`)}
               className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2 cursor-pointer"
             >
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                <Code className="w-16 h-16 text-white opacity-50 group-hover:opacity-100 transition-opacity" />
-              </div>
+              {project.cardImage ? (
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={project.cardImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ) : (
+                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                  <Code className="w-16 h-16 text-white opacity-50 group-hover:opacity-100 transition-opacity" />
+                </div>
+              )}
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
