@@ -4,6 +4,7 @@ import { Code } from 'lucide-react';
 import { PortfolioContext } from '../context/PortfolioContext';
 import TechBadge from './ui/TechBadge';
 import SectionHeading from './ui/SectionHeading';
+import ProjectLinks from './ui/ProjectLinks';
 
 export default function Projects() {
   const { projectsData } = useContext(PortfolioContext);
@@ -48,9 +49,12 @@ export default function Projects() {
                     <TechBadge key={i} label={tech} />
                   ))}
                 </div>
-                <p className="text-purple-600 dark:text-purple-400 font-semibold group-hover:underline">
-                  View details →
-                </p>
+                <div className="flex items-center justify-between pt-1">
+                  <p className="text-purple-600 dark:text-purple-400 font-semibold group-hover:underline">
+                    View details →
+                  </p>
+                  <ProjectLinks github={project.github} live={project.live} />
+                </div>
               </div>
             </div>
           ))

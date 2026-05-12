@@ -25,14 +25,10 @@ const PORTFOLIO_INFO = {
     "REST APIs",
     "Tailwind CSS",
   ],
-  // email is the single source of truth for contact info.
-  // Components that need a mailto: link should build it as `"mailto:" + portfolioData.email`.
   email: "alexgarcia1299@yahoo.com",
   socials: {
     github: "https://github.com/alexg1299/alexandragarcia.me",
     linkedin: "https://www.linkedin.com/in/alexandra-g1299/",
-    // email intentionally omitted — use portfolioData.email directly and
-    // prefix with "mailto:" where a link href is needed.
   },
 };
 
@@ -96,6 +92,26 @@ const PROJECTS = [
       ],
       github: null,
       live: null,
+    },
+    {
+      id: 'flowstate',
+      title: 'Flow State (Personal Project)',
+      description: 'Coffee dosing app for brewing better coffee. Featuring a grind calculator, recipe library, and bean facts.',
+      fullDescription: 'Flow State is a single page Angular application build for coffee hobbyist who want to brew with precision. Learning new skills can be very intimidating, this app help take away the guesswork and makes it easy to find the information you need to brew your best cup of coffee.',
+      challenges: 'This was my first time building an Angular application, so I had to learn the framework as I went. I also wanted to implement a custom design system and reusable component library, which added some complexity to the project.',
+      results: 'The app is live and available for anyone to use. It has a growing library of coffee recipes and bean facts, and I continue to add new features and content regularly.',
+      gradient: 'from-yellow-400 to-orange-500',
+      cardImage: '/projects/flowstate/flowstateCalc.png',
+      tech: ['Angular', 'TypeScript', 'Tailwind CSS', 'Cloudflare Pages', 'Git'],
+      live: 'https://flowstate.alexandragarcia.me/',
+      github: 'https://github.com/alexg1299/FlowState',
+      images: [
+        { src: '/projects/flowstate/flowstateCalc.png', caption: 'Flow State Calculator' },
+        { src: '/projects/flowstate/recipes.png', caption: 'Flow State Recipe Library' },
+        { src: '/projects/flowstate/recipeCard.png', caption: 'View recipe details' },
+        { src: '/projects/flowstate/facts.png', caption: 'Bean Facts Library' },
+        { src: '/projects/flowstate/factsCard.png', caption: 'View bean fact details' },
+      ],
     },
 ];
 
