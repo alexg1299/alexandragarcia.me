@@ -142,8 +142,7 @@ const PROJECTS = [
 //   tech        — array of technology strings
 //
 // Optional fields:
-//   previousTitle    — title of an earlier role at the same company
-//   previousDate     — date range for the previous role
+//   previousTitles   — array of { title, date } for earlier roles at the same company
 //   fullDescription  — longer text shown on the Experience detail page
 //   responsibilities — array of bullet strings
 //   achievements     — array of bullet strings
@@ -152,8 +151,10 @@ const EXPERIENCE = [
     {
       id: 'senior-swe',
       title: "Senior Software Engineer",
-      previousTitle: "Software Engineer",
-      previousDate: "May 2021 - Oct 2023",
+      previousTitles: [
+        { title: "Software Engineer", date: "May 2021 - Oct 2023" },
+        { title: "Software Engineer Intern", date: "May 2020 - May 2021" },
+      ],
       company: "Southwest Research Institute",
       date: "Oct 2023 - Present",
       description: "Architecting full-stack traffic management solutions for New England Compass, serving traffic operators across Vermont, New Hampshire, and Maine with real-time monitoring and device control.",
@@ -175,26 +176,10 @@ const EXPERIENCE = [
         "Mentored 3 software engineers and maintained high code quality standards through 100+ pull request reviews",
         "Ensured continuous uptime for state transportation clients through reliable 24/7 on-call support"
       ],
-      tech: ["React", "TypeScript", "C#", "Docker", "REST APIs", "OpenAPI3", "NUnit", "Microservices", "Git", "Agile"]
-    },
-    {
-      id: 'swe-intern',
-      title: "Software Engineer Intern",
-      company: "Southwest Research Institute",
-      date: "May 2020 - May 2021",
-      description: "Developed modular React components and C# backend services for traffic management applications, contributing to the foundation of the New England Compass project.",
-      fullDescription: "As a Software Engineer Intern at Southwest Research Institute, I contributed to real production systems from day one, developing frontend components and backend services for traffic management applications. I participated in agile ceremonies and built a strong foundation in the team's full-stack toolset.",
-      responsibilities: [
-        "Developing modular React components and C# backend services for traffic management applications",
-        "Contributing to the foundation of the New England Compass project",
-        "Supporting agile transformation by participating in sprint planning, daily standups, and iterative development cycles"
+      tech: ["React", "TypeScript", "C#", "Docker", "REST APIs", "OpenAPI3", "NUnit", "Microservices", "Git", "Agile"],
+      relatedProjects: [
+        { id: 'new-england-compass', title: 'New England Compass' },
       ],
-      achievements: [
-        "Contributed to the early foundation of the New England Compass platform",
-        "Supported agile adoption through active participation in iterative delivery cycles",
-        "Converted internship into a full-time Software Engineer role"
-      ],
-      tech: ["React", "TypeScript", "C#", "REST APIs", "Git", "Agile"],
     },
 ];
 

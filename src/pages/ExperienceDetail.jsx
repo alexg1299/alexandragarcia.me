@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar, FolderOpen } from 'lucide-react';
 import { PortfolioContext } from '../context/PortfolioContext';
 import BackButton from '../components/ui/BackButton';
 import TechBadge from '../components/ui/TechBadge';
@@ -37,10 +38,19 @@ export default function ExperienceDetail() {
                     {role.date}
                   </span>
                 </div>
-                {role.previousTitle && (
-                  <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                    Previous Roles: {role.previousTitle} &middot; {role.previousDate}
-                  </p>
+                {role.previousTitles?.length > 0 && (
+                  <div className="mt-3 space-y-2">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Previous Roles</p>
+                    {role.previousTitles.map((prev) => (
+                      <div key={prev.title} className="flex items-baseline justify-between gap-4">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{prev.title}</span>
+                        <span className="text-gray-500 dark:text-gray-400 flex items-center gap-1 shrink-0 text-sm">
+                          <Calendar className="w-4 h-4" />
+                          {prev.date}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
 
@@ -73,6 +83,24 @@ export default function ExperienceDetail() {
                     ))}
                   </ul>
                 </div>
+
+                {role.relatedProjects?.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Related Projects</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {role.relatedProjects.map((proj) => (
+                        <Link
+                          key={proj.id}
+                          to={`/project/${proj.id}`}
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-purple-300 dark:border-purple-700 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors text-sm font-medium"
+                        >
+                          <FolderOpen className="w-4 h-4" />
+                          {proj.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Technologies Used</h3>

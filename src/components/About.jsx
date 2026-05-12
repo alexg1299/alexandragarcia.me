@@ -85,12 +85,12 @@ export default function About() {
             </p>
 
             <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mb-6 space-y-2">
-              {experienceData[0].previousTitle && (
-                <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-gray-700 dark:text-gray-300">{experienceData[0].previousTitle}</span>
-                  <span className="text-gray-400 dark:text-gray-500">{experienceData[0].previousDate}</span>
+              {experienceData[0].previousTitles?.map((prev) => (
+                <div key={prev.title} className="flex items-center justify-between text-sm">
+                  <span className="font-medium text-gray-700 dark:text-gray-300">{prev.title}</span>
+                  <span className="text-gray-400 dark:text-gray-500">{prev.date}</span>
                 </div>
-              )}
+              ))}
               {experienceData.slice(1).map((role) => (
                 <div key={role.id} className="flex items-center justify-between text-sm">
                   <span className="font-medium text-gray-700 dark:text-gray-300">{role.title}</span>
