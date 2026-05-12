@@ -113,6 +113,19 @@ const PROJECTS = [
         { src: '/projects/flowstate/factsCard.png', caption: 'View bean fact details' },
       ],
     },
+    {
+      id: 'portfolio',
+      cardImage: '/projects/portfolio.png',
+      title: 'Personal Portfolio (This Site)',
+      description: 'A responsive, component-driven portfolio built with React and Tailwind CSS, featuring project showcases, experience timelines, and a clean, modern design.',
+      fullDescription: 'This portfolio site is a single-page React application that showcases my projects, experience, and skills. It is built with Vite for fast development and optimized production builds, styled entirely with Tailwind CSS, and organized around a central context layer that makes adding new content straightforward without touching component code.',
+      challenges: 'Designing a system flexible enough to support varied project formats with customizations such as video walkthroughs, image carousels, or with neither; while keeping the component surface small and the data layer easy to maintain.',
+      results: 'A fully responsive, accessible portfolio with smooth navigation, dynamic project and experience detail pages, and a data-driven architecture that lets me add new content by editing a single context file.',
+      gradient: 'from-violet-500 to-purple-700',
+      tech: ['React', 'Vite', 'Tailwind CSS', 'JavaScript', 'Cloudflare Pages'],
+      github: 'https://github.com/alexg1299/alexandragarcia.me',
+      live: 'https://alexandragarcia.me/',
+    },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
