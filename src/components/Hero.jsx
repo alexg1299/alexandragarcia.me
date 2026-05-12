@@ -39,9 +39,9 @@ export default function Hero() {
               <Download className="w-5 h-5" />
               Download Resume
             </button>
-            <button onClick={() => scrollToSection('contact')} className="px-8 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+            {/* <button onClick={() => scrollToSection('contact')} className="px-8 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
               Get In Touch
-            </button>
+            </button> */}
           </div>
           <div className="flex gap-6 justify-center pt-8">
             <a href={portfolioData.socials.github} className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
