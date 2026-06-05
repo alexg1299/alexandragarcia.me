@@ -104,13 +104,14 @@ const PROJECTS = [
       tech: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS', 'Route Handlers', 'ISR', 'BallDontLie API', 'Vercel'],
       github: 'https://github.com/alexg1299/nba-fan-hub',
       live: 'https://courtside-jade.vercel.app/',
+      cardImage: '/projects/courtside/Home.png',
       images: [
         { src: '/projects/courtside/Home.png', caption: 'Home page showing live/upcoming games, scores and standings' },
         { src: '/projects/courtside/HomeDarkMode.png', caption: 'Home page as Dark Mode' },
-        { src: './projects/courtside/Standings.png', caption: 'Conference Standings page showing team rankings and records' },
-        { src: './projects/courtside/Teams.png', caption: 'Teams page showing all NBA teams with search functionality' },
-        { src: './projects/courtside/TeamSpurs.png', caption: 'Team page showing detailed information for the San Antonio Spurs' },
-        { src: './projects/courtside/SpurPlayer.png', caption: 'Player page showing detailed information for a specific player, with search functionality' },
+        { src: '/projects/courtside/Standings.png', caption: 'Conference Standings page showing team rankings and records' },
+        { src: '/projects/courtside/Teams.png', caption: 'Teams page showing all NBA teams with search functionality' },
+        { src: '/projects/courtside/TeamSpurs.png', caption: 'Team page showing detailed information for the San Antonio Spurs' },
+        { src: '/projects/courtside/SpurPlayer.png', caption: 'Player page showing detailed information for a specific player, with search functionality' },
       ]
     },
     {
