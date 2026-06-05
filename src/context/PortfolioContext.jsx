@@ -17,6 +17,7 @@ const PORTFOLIO_INFO = {
     "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.",
   coreSkills: [
     "React",
+    "Next.js",
     "Node.js",
     "TypeScript",
     "C#",
@@ -95,7 +96,7 @@ const PROJECTS = [
     },
     {
       id: 'courtside',
-      title: 'CourtSide - NBA Game Day Fan Hub',
+      title: 'CourtSide (Personal Project)',
       description: 'A modern NBA game day fan hub with live scores, game breakdowns, player search, standings, and resilient API fallbacks.',
       fullDescription: 'CourtSide is a Next.js 14 App Router application built as a complete NBA game day experience. It includes live and upcoming game views, detailed matchup pages, conference standings, and real-time player search. The app uses server-side route handlers to normalize BallDontLie API data, protects API access from the client, and supports full light/dark mode with a persistent theme toggle.',
       challenges: 'The biggest challenge was delivering a reliable real-time-like experience on a rate-limited free API tier. I designed server-side normalization and per-route revalidation, then added transparent mock-data fallbacks so users always get a valid response even when the API is unavailable or throttled.',
