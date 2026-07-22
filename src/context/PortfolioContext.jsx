@@ -59,7 +59,7 @@ const PORTFOLIO_INFO = {
 const PROJECTS = [
     {
       id: 'txdot-its-site',
-      title: 'TxDOT ITS Site',
+      title: 'TxDOT ITS Site (Southwest Research Institute)',
       description: 'A modernized, map-first traffic operations platform that unifies statewide and district ITS monitoring with real-time data and legacy route compatibility.',
       fullDescription: 'The TxDOT ITS Site is a production transportation operations platform built to give operators a unified, real-time view of statewide and district Intelligent Transportation Systems data. It consolidates roadway assets and events such as cameras, dynamic message signs, incidents, lane closures, and flood stations into a single map-first experience. The platform combines an ASP.NET Core backend with a React single-page frontend, injecting runtime configuration for district or statewide scope and preserving critical legacy workflows during modernization.',
       challenges: 'A key challenge was modernizing a legacy district-focused experience without disrupting active operations. The system needed to support legacy URLs and route patterns while transitioning users to a React SPA model, and also maintain responsive behavior under high-frequency real-time updates. Additional complexity came from sharing one codebase across district and statewide modes, each with different filtering semantics and default behaviors.',
