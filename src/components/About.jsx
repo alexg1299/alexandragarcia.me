@@ -7,6 +7,7 @@ import SectionHeading from './ui/SectionHeading';
 export default function About() {
   const { portfolioData, experienceData } = useContext(PortfolioContext);
   const navigate = useNavigate();
+  const currentExperience = experienceData[0];
 
   return (
     <section id="about" className="min-h-screen flex items-center justify-center px-6 py-20 bg-gray-50 dark:bg-gray-800/50">
@@ -69,23 +70,33 @@ export default function About() {
             <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  {experienceData[0].title}
+                  {currentExperience.title}
                 </h3>
-                <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold mb-2">
-                  {experienceData[0].company}
-                </p>
+                <div className="flex items-center gap-3 mb-2">
+                  {currentExperience.companyLogo && (
+                    <img
+                      src={currentExperience.companyLogo}
+                      alt={`${currentExperience.company} logo`}
+                      className="w-10 h-10 rounded-md object-contain bg-white p-1 border border-gray-200 dark:border-gray-700"
+                      loading="lazy"
+                    />
+                  )}
+                  <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold">
+                    {currentExperience.company}
+                  </p>
+                </div>
               </div>
               <span className="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-semibold">
-                {experienceData[0].date}
+                {currentExperience.date}
               </span>
             </div>
 
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">
-              {experienceData[0].description}
+              {currentExperience.description}
             </p>
 
             <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mb-6 space-y-2">
-              {experienceData[0].previousTitles?.map((prev) => (
+              {currentExperience.previousTitles?.map((prev) => (
                 <div key={prev.title} className="flex items-center justify-between text-sm">
                   <span className="font-medium text-gray-700 dark:text-gray-300">{prev.title}</span>
                   <span className="text-gray-400 dark:text-gray-500">{prev.date}</span>

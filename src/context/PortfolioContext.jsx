@@ -58,6 +58,25 @@ const PORTFOLIO_INFO = {
 // ─────────────────────────────────────────────────────────────────────────────
 const PROJECTS = [
     {
+      id: 'txdot-its-site',
+      title: 'TxDOT ITS Site',
+      description: 'A modernized, map-first traffic operations platform that unifies statewide and district ITS monitoring with real-time data and legacy route compatibility.',
+      fullDescription: 'The TxDOT ITS Site is a production transportation operations platform built to give operators a unified, real-time view of statewide and district Intelligent Transportation Systems data. It consolidates roadway assets and events such as cameras, dynamic message signs, incidents, lane closures, and flood stations into a single map-first experience. The platform combines an ASP.NET Core backend with a React single-page frontend, injecting runtime configuration for district or statewide scope and preserving critical legacy workflows during modernization.',
+      challenges: 'A key challenge was modernizing a legacy district-focused experience without disrupting active operations. The system needed to support legacy URLs and route patterns while transitioning users to a React SPA model, and also maintain responsive behavior under high-frequency real-time updates. Additional complexity came from sharing one codebase across district and statewide modes, each with different filtering semantics and default behaviors.',
+      results: 'The final platform delivers a unified operational view across district and statewide contexts, with improved maintainability and reliability through modern client/server architecture. Legacy compatibility paths reduced rollout risk, while real-time updates and filter-driven map workflows improved speed-to-information for operators handling active roadway events.',
+      gradient: 'from-cyan-600 to-blue-700',
+      tech: ['ASP.NET Core', '.NET 8', 'React 18', 'Redux Toolkit', 'RTK Query', 'SignalR', 'Leaflet', 'Webpack'],
+      github: null,
+      live: 'https://its.txdot.gov/',
+      cardImage: '/projects/txdot-its-site/statewide.png',
+      images: [
+        { src: '/projects/txdot-its-site/statewide.png', caption: 'ITS Site Home page showing statewide devices' },
+        { src: '/projects/txdot-its-site/statewide-cameras.png', caption: 'Filter site to display statewide cameras by roadway' },
+        { src: '/projects/txdot-its-site/statewide-dms.png', caption: 'Filter site to display statewide dynamic message signs by roadway' },
+        { src: '/projects/txdot-its-site/map-popup-laneClosure.png', caption: 'Map navigation and select an icon to display device information' },
+      ]
+    },
+    {
       id: 'new-england-compass',
       title: 'New England Compass (Southwest Research Institute)',
       description: 'A production traffic management platform serving state transportation operators across Vermont, New Hampshire, and Maine with real-time monitoring and device control.',
@@ -111,7 +130,7 @@ const PROJECTS = [
         { src: '/projects/courtside/HomeDarkMode.png', caption: 'Home page as Dark Mode' },
         { src: '/projects/courtside/Standings.png', caption: 'Conference Standings page showing team rankings and records' },
         { src: '/projects/courtside/Teams.png', caption: 'Teams page showing all NBA teams with search functionality' },
-        { src: '/projects/courtside/TeamSpurs.png', caption: 'Team page showing detailed information for the San Antonio Spurs' },
+        { src: '/projects/courtside/TeamSpur.png', caption: 'Team page showing detailed information for the San Antonio Spurs' },
         { src: '/projects/courtside/SpurPlayer.png', caption: 'Player page showing detailed information for a specific player, with search functionality' },
       ]
     },
@@ -164,6 +183,7 @@ const PROJECTS = [
 //   tech        — array of technology strings
 //
 // Optional fields:
+//   companyLogo      — path to company logo shown on experience cards
 //   previousTitles   — array of { title, date } for earlier roles at the same company
 //   fullDescription  — longer text shown on the Experience detail page
 //   responsibilities — array of bullet strings
@@ -178,28 +198,32 @@ const EXPERIENCE = [
         { title: "Software Engineer Intern", date: "May 2020 - May 2021" },
       ],
       company: "Southwest Research Institute",
+      companyLogo: '/projects/swri-logo.png',
       date: "Oct 2023 - Present",
-      description: "Architecting full-stack traffic management solutions for New England Compass, serving traffic operators across Vermont, New Hampshire, and Maine with real-time monitoring and device control.",
-      fullDescription: "As a Senior Software Engineer at Southwest Research Institute, I lead full-stack development on New England Compass, a traffic management platform serving state transportation clients across Vermont, New Hampshire, and Maine. I drive modernization efforts, establish engineering best practices, and mentor a team of software engineers while maintaining production systems with 24/7 on-call support.",
+      description: "Leading full-stack transportation platform delivery across TxDOT ITS Site and New England Compass, modernizing systems with React 18, TypeScript, and ASP.NET Core 8 while supporting real-time operations for statewide and multi-state DOT teams.",
+      fullDescription: "As a Senior Software Engineer at Southwest Research Institute, I lead full-stack engineering and modernization across two production traffic management initiatives: TxDOT ITS Site and New England Compass. On TxDOT ITS Site, I am helping migrate and scale the platform with React 18, TypeScript, and ASP.NET Core 8 ahead of the 2026 World Cup, delivering shared architecture for one statewide deployment and 25 district sites from a single codebase. On New England Compass, I deliver real-time monitoring and device-control capabilities for transportation operators in Vermont, New Hampshire, and Maine. Across both efforts, I design shared API and data-access patterns, build SignalR-powered real-time infrastructure, run client demos and acceptance testing, and provide production support for mission-critical systems.",
       responsibilities: [
-        "Architecting full-stack traffic management platform with real-time monitoring and device control using React, TypeScript, C#, and RESTful APIs",
-        "Spearheading modernization initiative migrating monolithic Windows application to dockerized microservices architecture",
-        "Upgrading API documentation from Swagger to OpenAPI3 and modernizing legacy C# codebase",
-        "Transitioning team from waterfall to agile development methodologies",
-        "Establishing comprehensive testing framework by implementing NUnit across all division ATMS applications",
-        "Leading technical mentorship for 3 software engineers and conducting behavioral and technical interviews",
-        "Reviewing 100+ pull requests to maintain code quality standards",
-        "Providing 24/7 on-call support for traffic monitoring systems, consistently meeting SLA requirements"
+        "Leading TxDOT's ITS platform modernization to React 18, TypeScript, and ASP.NET Core 8 for a statewide site and 25 district sites ahead of the 2026 World Cup",
+        "Consolidating district data access into a shared RTK Query and typed configuration architecture spanning 6 asset domains and 13+ UI modules",
+        "Architecting real-time SignalR infrastructure with 60+ WebSocket hubs streaming live traffic, weather, and event data to transportation operators",
+        "Building C#/.NET integrations for external systems including wrong-way vehicle detection alerts and camera-status event streaming",
+        "Delivering end-to-end features for multi-state traffic management platforms in React, TypeScript, and C#/.NET for state DOT operators",
+        "Spearheading migration from a monolithic Windows application to dockerized microservices while helping transition the team from waterfall to agile",
+        "Establishing NUnit and Jest testing standards across ATMS applications to improve production reliability",
+        "Leading client demos and acceptance test procedures, mentoring junior engineers, and providing 24/7 on-call support for critical production systems"
       ],
       achievements: [
         "Built and architected New England Compass, a production traffic management platform serving operators across three states",
         "Led monolith-to-microservices migration, modernizing a legacy Windows application into a dockerized architecture",
-        "Implemented NUnit testing framework across all division ATMS applications, ensuring code quality for production deployments",
-        "Mentored 3 software engineers and maintained high code quality standards through 100+ pull request reviews",
-        "Ensured continuous uptime for state transportation clients through reliable 24/7 on-call support"
+        "Delivered a configurable ITS platform architecture that powers one statewide TxDOT site and 25 district sites from a shared codebase",
+        "Reduced endpoint surface area by 25% by consolidating district data access into shared RTK Query services and typed configuration",
+        "Built real-time SignalR infrastructure with 60+ hubs to stream operational traffic, weather, and event data",
+        "Implemented secure external integrations for Avigilon wrong-way detection and Claris camera event streaming, cutting device-to-device communication time by about 80%",
+        "Established division-wide NUnit and Jest testing standards while supporting production systems with fast bug resolution and SLA-backed on-call coverage"
       ],
-      tech: ["React", "TypeScript", "C#", "Docker", "REST APIs", "OpenAPI3", "NUnit", "Microservices", "Git", "Agile"],
+      tech: ["React 18", "TypeScript", "ASP.NET Core 8", "C#/.NET", "RTK Query", "SignalR", "WebSockets", "Docker", "REST APIs", "OpenAPI", "NUnit", "Jest", "Microservices", "Agile"],
       relatedProjects: [
+        { id: 'txdot-its-site', title: 'TxDOT ITS Site' },
         { id: 'new-england-compass', title: 'New England Compass' },
       ],
     },

@@ -17,9 +17,19 @@ export default function ExperienceDetail() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-24">
-        <h1 className="text-4xl md:text-5xl font-bold  text-purple-600 dark:text-purple-400 mb-2">
-          Southwest Research Institute
-        </h1>
+        <div className="flex items-center gap-3 mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400">
+            {experienceData[0].company}
+          </h1>
+          {/* {experienceData[0].companyLogo && (
+            <img
+              src={experienceData[0].companyLogo}
+              alt={`${experienceData[0].company} logo`}
+              className="w-10 h-10 rounded-md object-contain bg-white p-1 border border-gray-200 dark:border-gray-700 shrink-0"
+              loading="lazy"
+            />
+          )} */}
+        </div>
         <p className="text-gray-500 dark:text-gray-400 mb-12 text-lg">Full employment history</p>
 
         <div className="space-y-16">

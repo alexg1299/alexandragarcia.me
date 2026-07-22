@@ -7,8 +7,8 @@ export default function Hero() {
 
   const handleResumeDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Alexandra Garcia-Resume2026.pdf';
-    link.download = 'Alexandra Garcia-Resume2026.pdf';
+    link.href = '/resume/Alexandra_Garcia_Resume.pdf';
+    link.download = 'Alexandra_Garcia_Resume.pdf';
     link.click();
   };
 
