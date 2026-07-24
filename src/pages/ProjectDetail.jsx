@@ -188,6 +188,19 @@ export default function ProjectDetail() {
           ))}
         </div>
 
+        <div className="flex gap-4 mb-8">
+          {project.github && (
+            <a href={project.github} className="flex items-center gap-2 px-6 py-3 border-2 border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 rounded-lg font-semibold hover:bg-purple-50 dark:hover:bg-gray-800 transition-all">
+              <Github className="w-5 h-5" /> View Code
+            </a>
+          )}
+          {project.live && (
+            <a href={project.live} className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+              <ExternalLink className="w-5 h-5" /> Live Demo
+            </a>
+          )}
+        </div>
+
         <div className="space-y-8 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
           <div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
@@ -231,19 +244,6 @@ export default function ProjectDetail() {
               </div>
             </div>
           )}
-
-          <div className="flex gap-4 pt-4">
-            {project.github && (
-              <a href={project.github} className="flex items-center gap-2 px-6 py-3 border-2 border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 rounded-lg font-semibold hover:bg-purple-50 dark:hover:bg-gray-800 transition-all">
-                <Github className="w-5 h-5" /> View Code
-              </a>
-            )}
-            {project.live && (
-              <a href={project.live} className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all">
-                <ExternalLink className="w-5 h-5" /> Live Demo
-              </a>
-            )}
-          </div>
         </div>
       </div>
     </div>
