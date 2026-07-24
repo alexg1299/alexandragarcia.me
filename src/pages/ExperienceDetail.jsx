@@ -70,6 +70,34 @@ export default function ExperienceDetail() {
                   <p>{role.fullDescription}</p>
                 </div>
 
+                {role.relatedProjects?.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Related Projects</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {role.relatedProjects.map((proj) => (
+                        <Link
+                          key={proj.id}
+                          to={`/project/${proj.id}`}
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-purple-300 dark:border-purple-700 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors text-sm font-medium"
+                        >
+                          <FolderOpen className="w-4 h-4" />
+                          {proj.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Technologies Used</h3>
+                  {/* Tech stack pills — gradient variant */}
+                  <div className="flex flex-wrap gap-2">
+                    {role.tech.map((tech, i) => (
+                      <TechBadge key={i} label={tech} variant="gradient" />
+                    ))}
+                  </div>
+                </div>
+
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Key Responsibilities</h3>
                   <ul className="space-y-2">
@@ -94,33 +122,6 @@ export default function ExperienceDetail() {
                   </ul>
                 </div>
 
-                {role.relatedProjects?.length > 0 && (
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Related Projects</h3>
-                    <div className="flex flex-wrap gap-3">
-                      {role.relatedProjects.map((proj) => (
-                        <Link
-                          key={proj.id}
-                          to={`/project/${proj.id}`}
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-purple-300 dark:border-purple-700 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors text-sm font-medium"
-                        >
-                          <FolderOpen className="w-4 h-4" />
-                          {proj.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Technologies Used</h3>
-                  {/* Tech stack pills — gradient variant */}
-                <div className="flex flex-wrap gap-2">
-                    {role.tech.map((tech, i) => (
-                      <TechBadge key={i} label={tech} variant="gradient" />
-                    ))}
-                  </div>
-                </div>
               </div>
 
               {index < experienceData.length - 1 && (
